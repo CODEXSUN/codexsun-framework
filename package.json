@@ -1,0 +1,132 @@
+{
+  "name": "@devxcrew/framework",
+  "version": "1.0.80",
+  "private": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    },
+    "./api": {
+      "types": "./dist/src/api/index.d.ts",
+      "import": "./dist/src/api/index.js"
+    },
+    "./addons": {
+      "types": "./dist/src/addons/index.d.ts",
+      "import": "./dist/src/addons/index.js"
+    },
+    "./config": {
+      "types": "./dist/src/config/index.d.ts",
+      "import": "./dist/src/config/index.js"
+    },
+    "./db": {
+      "types": "./dist/src/db/index.d.ts",
+      "import": "./dist/src/db/index.js"
+    },
+    "./env": {
+      "types": "./dist/src/env/index.d.ts",
+      "import": "./dist/src/env/index.js"
+    },
+    "./errors": {
+      "types": "./dist/src/errors/index.d.ts",
+      "import": "./dist/src/errors/index.js"
+    },
+    "./events": {
+      "types": "./dist/src/events/index.d.ts",
+      "import": "./dist/src/events/index.js"
+    },
+    "./health": {
+      "types": "./dist/src/health/index.d.ts",
+      "import": "./dist/src/health/index.js"
+    },
+    "./http": {
+      "types": "./dist/src/http/index.d.ts",
+      "import": "./dist/src/http/index.js"
+    },
+    "./logger": {
+      "types": "./dist/src/logger/index.d.ts",
+      "import": "./dist/src/logger/index.js"
+    },
+    "./modules": {
+      "types": "./dist/src/modules/index.d.ts",
+      "import": "./dist/src/modules/index.js"
+    },
+    "./queue": {
+      "types": "./dist/src/queue/index.d.ts",
+      "import": "./dist/src/queue/index.js"
+    },
+    "./storage": {
+      "types": "./dist/src/storage/index.d.ts",
+      "import": "./dist/src/storage/index.js"
+    }
+  },
+  "scripts": {
+    "build": "codexsun-cli build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "dependencies:check": "codexsun-cli dependencies:check",
+    "check": "npm run dependencies:check && npm run check:versions && npm run lines:check && npm run typecheck && npm run lint && npm test",
+    "test": "tsx --test src/**/*.test.ts",
+    "prepack": "npm run build",
+    "pack": "codexsun-cli pack",
+    "release:check": "npm run check && npm run format:check && npm pack --dry-run",
+    "release": "npm run release:check && npm publish --access public",
+    "package:check": "codexsun-cli package:check",
+    "version:show": "codexsun-cli version:show",
+    "version:bump": "codexsun-cli version:bump",
+    "check:versions": "codexsun-cli check:versions",
+    "changelog:append": "codexsun-cli changelog:append",
+    "github:now": "codexsun-cli github:now",
+    "lines:check": "codexsun-cli lines:check",
+    "lines:fix": "codexsun-cli lines:fix"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.1.2",
+    "@fastify/cors": "^11.3.0",
+    "dotenv": "^17.4.2",
+    "fastify": "^5.12.1",
+    "kysely": "^0.29.5",
+    "mariadb": "^3.5.3",
+    "mysql2": "^3.23.4",
+    "zod": "^4.4.3"
+  },
+  "files": [
+    "dist/src",
+    "README.md",
+    "assist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "engines": {
+    "node": ">=26.5.0",
+    "npm": ">=12.0.1"
+  },
+  "packageManager": "npm@12.0.2",
+  "allowScripts": {
+    "esbuild": true
+  },
+  "devDependencies": {
+    "@devxcrew/cli": "1.0.0",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.67.0",
+    "@typescript-eslint/parser": "^8.67.0",
+    "eslint": "^10.8.1",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.12",
+    "typescript": "6.0.3"
+  },
+  "repository": {
+    "url": "git+https://github.com/CODEXSUN/codexsun-framework.git",
+    "type": "git"
+  },
+  "homepage": "https://github.com/CODEXSUN/codexsun-framework#readme",
+  "bugs": {
+    "url": "https://github.com/CODEXSUN/codexsun-framework/issues"
+  }
+}

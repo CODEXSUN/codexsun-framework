@@ -1,0 +1,11 @@
+{
+  "build": {
+    "output": "dist/src",
+    "tsconfig": "tsconfig.json",
+    "assets": []
+  },
+  "boundaries": {
+    "sources": ["src"],
+    "forbiddenPackages": ["@cxapp/", "@codexsun/ui", "@codexsun/platform-core"]
+  }
+}
